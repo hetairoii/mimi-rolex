@@ -1,16 +1,13 @@
 const uploadFiles = require("../middleware/store")
-const existenceMiddleware = require("../middleware/verifyExistence")
-
 
 module.exports = app => {
     const tudor = require('../controllers/tudorController')
     var router = require("express").Router()
 
-    //Relojeria
-    //router.get("/relojeria-slider", store.findRSlider)
-    //router.get("/relojeria-tudor", store.findRMain)
-    //router.put("/relojeria/:id",uploadFiles.any(), store.findR)
-    //router.get("/relojeria/producto/:id", store.findDetailR)
+    router.get("/tudor/admin/get-all", tudor.getAll)
+    router.patch("/tudor/admin/update-watch/:id", uploadFiles.any(), tudor.updateTudorWatch)
+    router.patch("/tudor/admin/update-status/:id", uploadFiles.any(), tudor.updateTudorStatus)
+    router.post("/tudor/verify", uploadFiles.any(), tudor.verifyTudor)
     router.post("/tudor/add-watch", uploadFiles.any(), tudor.createTudor)
 
     app.use('/api', router)
