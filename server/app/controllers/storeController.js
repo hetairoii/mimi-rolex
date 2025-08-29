@@ -4,8 +4,8 @@ const User = db.user.User;
 const Op = db.Sequelize.Op;
 
 const fs = require("fs");
-const storagePath = 'https://mimijoyeria.com/storage'
-// const storagePath = 'https://localhost:3000/storage'
+//const storagePath = 'https://mimijoyeria.com/storage'
+const storagePath = 'https://localhost:3000/storage'
 
 
 function truncExtension(text) { return text.split('.')[0] }
@@ -196,7 +196,7 @@ exports.createR = (req, res) => {
             "titulo": body.title,
             "contenidoTabla": body.tableRows[0],
             "coleccion": body.collection,
-            "precio": `$${body.price}`,
+            "precio": body.price,
             "cantidadImagenes": body.quantity
         }
 
