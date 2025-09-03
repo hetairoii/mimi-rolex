@@ -35,6 +35,7 @@ src/assets
 server/node_modules
 server/.env
 server/keys
+server/mimi-backup-relojeria-testing.sql
 
 
 server/storage/

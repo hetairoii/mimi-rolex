@@ -79,15 +79,15 @@ require('./app/api/mail.routes')(app);
 require('./app/api/payment.routes')(app);
 require('./app/api/routes.routes')(app);
 require('./app/api/tracking.routes')(app);
+require('./app/api/tudor.routes')(app);
 
 
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;
-const LOCALPATH = process.env.LOCALPATH
+const HOST = process.env.HOST || '0.0.0.0';
 
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
+app.listen(PORT, HOST, () => {
+  console.log(`Server is running on http://${HOST}:${PORT}`);
 });
 
